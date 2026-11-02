@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_wall",
-    "path":"sprites/spr_wall/spr_wall.yy",
+    "name":"spr_gravity_switch",
+    "path":"sprites/spr_gravity_switch/spr_gravity_switch.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -57,6 +57,6 @@ function move_collide(){
 }
 
 function touching_ground(_amt) {
-	var _floor_below = place_meeting(x, y+_amt, obj_wall);
+	var _floor_below = place_meeting(x, y+_amt, obj_collidable);
 	return _floor_below;
 }

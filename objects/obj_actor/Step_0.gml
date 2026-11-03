@@ -92,7 +92,9 @@ var _other = instance_find(obj_actor, 0);
 if (_other == id) _other = instance_find(obj_actor, 1);
 
 // make the connection less instant
-if (connected && _other != noone) {
+if (_other == id) _other = instance_find(obj_actor, 1); // get other player if this player
+
+if (connected) {
     var _dist = _other.x - x;
 
     if (abs(_dist) > 1) {
@@ -101,23 +103,30 @@ if (connected && _other != noone) {
         var _moved = 0;
 
         while (_moved < _pull) {
-            if (place_meeting(x + _sign, y, obj_wall) || place_meeting(x + _sign, y, obj_steel)) break;
+            if (place_meeting(x + _sign, y, obj_wall)) break;
             x += _sign;
             _moved += 1;
         }
     }
-	else if (!place_meeting(_other.x, y, obj_wall) && !place_meeting(_other.x, y, obj_steel)) {
+	else if (!place_meeting(_other.x, y, obj_wall)) {
 	    x = _other.x;
 	}
 }
 
 connected = _connected;
 
+
 if (_connected && _other != noone) {
     var _lead = (abs(xspd) > abs(_other.xspd)) || (abs(xspd) == abs(_other.xspd) && id < _other.id);
-    if (!_lead) {
-        xspd = _other.xspd;
-    }
+    if (_lead) {
+        if (xspd != 0) {
+            with (_other) {
+                if (!place_meeting(x + other.xspd, y, obj_wall)) {
+                    x += other.xspd;
+                }
+            }
+        }
+    } else { xspd = 0; }
 }
 
 yspd += grav * grav_dir;

@@ -1,7 +1,10 @@
 // Open this door when its owner stands in it
-var _p = instance_place(x, y, owner_obj);
-door_open = _p != noone && _p.object_index == owner_obj;
-
+if (!door_open) {
+    var _p = instance_place(x, y, owner_obj);
+    if (_p != noone && _p.object_index == owner_obj) {
+        door_open = true;
+    }
+}
 
 // Check whether every door in the room is open
 var _all_open = true;

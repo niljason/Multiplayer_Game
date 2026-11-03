@@ -50,7 +50,10 @@ if (_side_jump) {
 
 // is on the ground?
 var grounded = touching_ground(grav_dir);
-var _jump = !_just_detached && !_side_jump && (grounded && _ku || grounded && _kd && grav_dir == -1);
+if (grounded) { coyote_timer = coyote_frames; }
+else { coyote_timer = max(coyote_timer-1, 0); }
+
+var _jump = !_just_detached && !_side_jump && (coyote_timer > 0) && (_ku || (_kd && grav_dir == -1));
 
 if (!_side_jump) {
     if (hmove != 0) {
@@ -62,6 +65,7 @@ if (!_side_jump) {
 
 if (_jump) {
 	yspd = jump_spd * -grav_dir;
+	coyote_timer = 0;
 }
 // not held dampen jump
 var _jump_held = keyboard_check(btn_up) || (grav_dir == -1 && keyboard_check(btn_down));
@@ -88,19 +92,39 @@ var _connected = place_meeting(x, y+1, obj_actor) || place_meeting(x, y-1, obj_a
 var _other = instance_find(obj_actor, 0);
 if (_other == id) _other = instance_find(obj_actor, 1);
 
-if (!connected && _connected) {
-	var _midX = (_other.x + x) / 2;
-	x = _midX;
-	_other.x = _midX;
-}
-connected = _connected;
+// make the connection less instant
+if (connected) {
+    var _dist = _other.x - x;
 
-if (_connected && xspd != 0 && _other != noone) {
-    with (_other) {
-        if (!place_meeting(x + other.xspd, y, obj_wall)) {
-            x += other.xspd;
+    if (abs(_dist) > 1) {
+        var _sign = sign(_dist);
+        var _pull = clamp(abs(_dist), 0.5, 2);
+        var _moved = 0;
+
+        while (_moved < _pull) {
+            if (place_meeting(x + _sign, y, obj_wall)) break;
+            x += _sign;
+            _moved += 1;
         }
     }
+	else if (!place_meeting(_other.x, y, obj_wall)) {
+	    x = _other.x;
+	}
+}
+
+connected = _connected;
+
+if (_connected && _other != noone) {
+    var _lead = (abs(xspd) > abs(_other.xspd)) || (abs(xspd) == abs(_other.xspd) && id < _other.id);
+    if (_lead) {
+        if (xspd != 0) {
+            with (_other) {
+                if (!place_meeting(x + other.xspd, y, obj_wall)) {
+                    x += other.xspd;
+                }
+            }
+        }
+    } else { xspd = 0; }
 }
 
 yspd += grav * grav_dir;

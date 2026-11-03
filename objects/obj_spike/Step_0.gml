@@ -6,8 +6,8 @@ with (obj_actor) {
 
 if (_hit) {
     with (obj_actor) {
-        x = xstart;
-        y = ystart;
+        x = x_start;
+        y = y_start;
 		grav_dir = spawn_grav_dir;
 		attached_steel = noone;
 		attached_side = 0;

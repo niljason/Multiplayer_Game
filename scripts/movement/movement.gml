@@ -42,16 +42,27 @@ function move_collide(){
 	
 
 	for (var _y = 0; _y < abs(yspd_round); _y++){
-		if (!place_meeting(x, y  + sign(yspd), obj_collidable)){
+		if (!place_meeting(x, y + sign(yspd), obj_collidable)){
 			y += sign(yspd);
 		} else {
-			hitThing = instance_place(x,y+sign(yspd),obj_collidable);
+			var _impact_dir = sign(yspd);
+			hitThing = instance_place(x, y + _impact_dir, obj_collidable);
 			hitThing.hit = true;
 			hit = true;
-			yspd = 0;	
+
+			// Latch to steel when the player hits its top or bottom face.
+			if (hitThing.object_index == obj_steel) {
+				attached_steel = hitThing;
+				attached_side = _impact_dir;
+				attached_offset_x = x - hitThing.x;
+				attached_offset_y = y - hitThing.y;
+				xspd = 0;
+				x_remain = 0;
+			}
+
+			yspd = 0;
 		}	
 	}
-	
 	if (xspd == 0) x_remain = 0;
 	if (yspd == 0) y_remain = 0;
 }

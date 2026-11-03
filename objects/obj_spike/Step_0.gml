@@ -8,12 +8,14 @@ if (_hit) {
     with (obj_actor) {
         x = x_start;
         y = y_start;
+		grav_dir = spawn_grav_dir;
+		attached_steel = noone;
+		attached_side = 0;
+		attached_offset_x = 0;
+		attached_offset_y = 0;
         xspd = 0;
         yspd = 0;
         x_remain = 0;
         y_remain = 0;
-		show_debug_message("respawn: x=" + string(x) + " y=" + string(y)
-    + " vis=" + string(visible) + " alpha=" + string(image_alpha)
-    + " depth=" + string(depth));
     }
 }

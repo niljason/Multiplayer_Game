@@ -33,9 +33,17 @@ coin_grav_bonus  = 0.01;
 // connected 
 connected = false;
 
+// Steel attachment state.
+attached_steel = noone;
+attached_side = 0;
+attached_offset_x = 0;
+attached_offset_y = 0;
+
+// start
 x_start = x;
 y_start = y;
 
+// coyote
 coyote_frames = 6;
 coyote_timer = 0;
 

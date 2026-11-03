@@ -2,7 +2,6 @@
 var _p = instance_place(x, y, owner_obj);
 door_open = _p != noone && _p.object_index == owner_obj;
 
-
 // Check whether every door in the room is open
 var _all_open = true;
 for (var i = 0; i < instance_number(obj_door); i++) {

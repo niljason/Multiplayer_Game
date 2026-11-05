@@ -212,8 +212,8 @@
   "maintainGms1Font":false,
   "name":"fnt_grav_24",
   "parent":{
-    "name":"Multiplayer_Prototype",
-    "path":"Multiplayer_Prototype.yyp",
+    "name":"fonts",
+    "path":"folders/fonts.yy",
   },
   "pointRounding":0,
   "ranges":[

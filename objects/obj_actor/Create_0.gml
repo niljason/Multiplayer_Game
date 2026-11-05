@@ -26,9 +26,9 @@ coins_collected = 0;
 max_coins = 10;
 
 // Per-coin upgrade rates
-coin_speed_bonus = 0.075; 
-coin_jump_bonus  = 0.25;
-coin_grav_bonus  = 0.01; 
+coin_speed_bonus = 0.05; 
+coin_jump_bonus  = 0.75;
+coin_grav_bonus  = 0.03; 
 
 // connected 
 connected = false;
@@ -46,5 +46,8 @@ y_start = y;
 // coyote
 coyote_frames = 6;
 coyote_timer = 0;
+
+jump_hold_time = 0;
+jump_hold_max = ceil(jump_spd / grav);
 
 init_movement();

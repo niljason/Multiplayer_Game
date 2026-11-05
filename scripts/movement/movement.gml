@@ -50,12 +50,11 @@ function move_collide(){
 			hitThing.hit = true;
 			hit = true;
 
-			// Latch to steel when the player hits its top or bottom face.
-			if (hitThing.object_index == obj_steel) {
+			if (hitThing.object_index == obj_steel && !place_meeting(x, y, hitThing)) {
 				attached_steel = hitThing;
 				attached_side = _impact_dir;
-				attached_offset_x = x - hitThing.x;
-				attached_offset_y = y - hitThing.y;
+				attached_offset_x = x - round(hitThing.x);
+				attached_offset_y = y - round(hitThing.y);
 				xspd = 0;
 				x_remain = 0;
 			}
@@ -70,4 +69,35 @@ function move_collide(){
 function touching_ground(_amt) {
 	var _floor_below = place_meeting(x, y+_amt, obj_collidable);
 	return _floor_below;
+}
+
+// true if (_x,_y) overlaps any collidable other than _ignore
+function blocked_ignoring(_x, _y, _ignore) {
+	var _list = ds_list_create();
+	var _n = instance_place_list(_x, _y, obj_collidable, _list, false);
+	var _blocked = false;
+	for (var i = 0; i < _n; i++) {
+		if (_list[| i] != _ignore) { _blocked = true; break; }
+	}
+	ds_list_destroy(_list);
+	return _blocked;
+}
+
+function unstick() {
+	if (!place_meeting(x, y, obj_collidable)) return;
+	// 4 cardinal directions
+	var _dx = [0, 1, -1, 0];
+	var _dy = [-1, 0, 0, 1];
+	// 16 pixels in each direction
+	for (var _r = 1; _r <= 16; _r++) {
+		for (var _i = 0; _i < 4; _i++) {
+			var _nx = x + _dx[_i] * _r;
+			var _ny = y + _dy[_i] * _r;
+			if (!place_meeting(_nx, _ny, obj_collidable)) {
+				x = _nx; y = _ny;
+				x_remain = 0; y_remain = 0;
+				return;
+			}
+		}
+	}
 }

@@ -1,3 +1,8 @@
+if (instance_number(object_index) > 1) {
+	instance_destroy();
+	exit;
+}
+
 global.cam = view_camera[0];
 
 cam_x = 0;

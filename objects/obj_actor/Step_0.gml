@@ -56,6 +56,7 @@ if (attached_steel != noone) {
 		xspd = 0;
 		yspd = 0;
 		y_remain = 0;
+		keep_players_in_shared_view();
 		exit;
 	}
 }
@@ -67,8 +68,6 @@ if (place_meeting(x - 1, y, obj_steel)) {
 } else if (place_meeting(x + 1, y, obj_steel)) {
 	_steel_side = instance_place(x + 1, y, obj_steel);
 }
-if (_steel_side != noone) show_debug_message("side contact, jump=" + string(_jump_pressed));
-
 var _side_jump = !_just_detached && _jump_pressed && _steel_side != noone;
 if (_side_jump) {
 	var _actor_center = (bbox_left + bbox_right) * 0.5;
@@ -174,6 +173,8 @@ max_xspd = base_xspd * (1 + coin_speed_bonus * coins_collected);
 max_yspd = base_yspd;
 jump_spd = base_jump_spd + coin_jump_bonus * coins_collected;
 grav = base_grav + coin_grav_bonus * coins_collected;
+jump_hold_max = max(1, ceil(jump_spd / grav));
 
 unstick();
 move_collide();
+keep_players_in_shared_view();

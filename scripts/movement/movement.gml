@@ -102,3 +102,25 @@ function unstick() {
 		}
 	}
 }
+
+// A player cannot move far enough away to place the other player beyond one
+// camera-width. This makes the player moving away from their partner stop.
+function keep_players_in_shared_view() {
+	if (instance_number(obj_actor) != 2 || !instance_exists(obj_cam_ctrl)) return;
+
+	var _p1 = instance_find(obj_actor, 0);
+	var _p2 = instance_find(obj_actor, 1);
+	var _left = (_p1.bbox_left <= _p2.bbox_left) ? _p1 : _p2;
+	var _right = (_left == _p1) ? _p2 : _p1;
+	var _overflow = _right.bbox_right - _left.bbox_left - camera_get_view_width(global.cam);
+
+	if (_overflow <= 0) return;
+
+	if (id == _right) {
+		x -= _overflow;
+	} else if (id == _left) {
+		x += _overflow;
+	}
+	xspd = 0;
+	x_remain = 0;
+}

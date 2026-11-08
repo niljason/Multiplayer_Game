@@ -11,6 +11,7 @@ if (_hit) {
 		grav_dir = spawn_grav_dir;
 		attached_steel = noone;
 		attached_side = 0;
+		attached_xspd = 0;
 		attached_offset_x = 0;
 		attached_offset_y = 0;
         xspd = 0;

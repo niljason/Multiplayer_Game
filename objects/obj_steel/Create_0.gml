@@ -1,11 +1,2 @@
-// Inherit collision setup from obj_collidable.
+// Reuse the shared collision initialization.
 event_inherited();
-
-start_x = x;
-move_range = 1200;
-move_speed = 5;
-move_dir = 1;
-move_delta_x = 0;
-
-move_remain = 0;
-push_blocked = false;

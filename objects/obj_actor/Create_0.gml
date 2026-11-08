@@ -38,6 +38,10 @@ attached_steel = noone;
 attached_side = 0;
 attached_offset_x = 0;
 attached_offset_y = 0;
+attached_xspd = 0;
+attached_move_speed = 20;
+attached_move_accel = 0.8;
+attached_move_decel = 0.2;
 
 // start
 x_start = x;

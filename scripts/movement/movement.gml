@@ -50,9 +50,10 @@ function move_collide(){
 			hitThing.hit = true;
 			hit = true;
 
-			if (hitThing.object_index == obj_steel && !place_meeting(x, y, hitThing)) {
+			if ((hitThing.object_index == obj_steel || hitThing.object_index == obj_moving_steel) && !place_meeting(x, y, hitThing)) {
 				attached_steel = hitThing;
 				attached_side = _impact_dir;
+				attached_xspd = 0;
 				attached_offset_x = x - round(hitThing.x);
 				attached_offset_y = y - round(hitThing.y);
 				xspd = 0;

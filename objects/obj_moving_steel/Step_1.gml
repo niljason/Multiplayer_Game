@@ -43,6 +43,7 @@ repeat (abs(_step)) {
 			} else {
 				attached_steel = noone; 
 				attached_side = 0;
+				attached_xspd = 0;
 			}
 		}
 		if (attached_steel != other.id && place_meeting(x, y, other)) {

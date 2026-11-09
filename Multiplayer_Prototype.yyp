@@ -31,6 +31,7 @@
     {"id":{"name":"fnt_grav_24","path":"fonts/fnt_grav_24/fnt_grav_24.yy",},},
     {"id":{"name":"obj_actor","path":"objects/obj_actor/obj_actor.yy",},},
     {"id":{"name":"obj_cam_ctrl","path":"objects/obj_cam_ctrl/obj_cam_ctrl.yy",},},
+    {"id":{"name":"obj_checkpoint_mask","path":"objects/obj_checkpoint_mask/obj_checkpoint_mask.yy",},},
     {"id":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},},
     {"id":{"name":"obj_collectible_1","path":"objects/obj_collectible_1/obj_collectible_1.yy",},},
     {"id":{"name":"obj_collectible_2","path":"objects/obj_collectible_2/obj_collectible_2.yy",},},

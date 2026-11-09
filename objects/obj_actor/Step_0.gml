@@ -113,6 +113,7 @@ if (_switch != noone
 && keyboard_check_pressed(btn_switch)
 && _switch.cooldown <= 0) {
 	_switch.cooldown = 30;
+	_switch.image_index = (_switch.image_index + 1) mod _switch.image_number;
 	with (obj_actor) {
 		grav_dir *= -1;
 		yspd = 0;
@@ -175,6 +176,7 @@ max_yspd = base_yspd;
 jump_spd = base_jump_spd + coin_jump_bonus * _effect_coins;
 grav = base_grav + coin_grav_bonus * _effect_coins;
 jump_hold_max = max(1, ceil(jump_spd / grav));
+coin_hitbox = coin_hitbox_bonus * _effect_coins;
 
 unstick();
 move_collide();

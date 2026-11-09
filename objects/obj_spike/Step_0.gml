@@ -1,22 +1,8 @@
-// Send all players back to their starting positions if any player touches a spike.
-var _hit = false;
-with (obj_actor) {
-    if (place_meeting(x, y, obj_spike)) _hit = true;
-}
+// Send all players back to their starting positions if a player touches this spike.
+var _hit_player = instance_place(x, y, obj_actor);
 
-if (_hit) {
-    with (obj_actor) {
-        x = x_start;
-        y = y_start;
-		grav_dir = spawn_grav_dir;
-		attached_steel = noone;
-		attached_side = 0;
-		attached_xspd = 0;
-		attached_offset_x = 0;
-		attached_offset_y = 0;
-        xspd = 0;
-        yspd = 0;
-        x_remain = 0;
-        y_remain = 0;
-    }
+if (_hit_player != noone) {
+	juice_player_died(_hit_player.x, _hit_player.y);
+	global.deaths++;
+	with (obj_actor) reset_actor_to_spawn();
 }

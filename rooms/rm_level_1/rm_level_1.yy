@@ -8,8 +8,6 @@
   "instanceCreationOrder":[
     {"name":"inst_762A8F53","path":"rooms/rm_level_1/rm_level_1.yy",},
     {"name":"inst_32B0199A","path":"rooms/rm_level_1/rm_level_1.yy",},
-    {"name":"inst_1B2BE01D","path":"rooms/rm_level_1/rm_level_1.yy",},
-    {"name":"inst_50597887","path":"rooms/rm_level_1/rm_level_1.yy",},
     {"name":"inst_73D1FC10","path":"rooms/rm_level_1/rm_level_1.yy",},
     {"name":"inst_58E4ED50","path":"rooms/rm_level_1/rm_level_1.yy",},
     {"name":"inst_1716AEF6","path":"rooms/rm_level_1/rm_level_1.yy",},
@@ -109,6 +107,8 @@
     {"name":"inst_76F158D9","path":"rooms/rm_level_1/rm_level_1.yy",},
     {"name":"inst_4CF55906","path":"rooms/rm_level_1/rm_level_1.yy",},
     {"name":"inst_58E67E9A","path":"rooms/rm_level_1/rm_level_1.yy",},
+    {"name":"inst_1B2BE01D","path":"rooms/rm_level_1/rm_level_1.yy",},
+    {"name":"inst_50597887","path":"rooms/rm_level_1/rm_level_1.yy",},
   ],
   "isDnd":false,
   "layers":[

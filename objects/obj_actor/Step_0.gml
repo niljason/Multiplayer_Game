@@ -168,11 +168,12 @@ yspd += grav * grav_dir;
 yspd = clamp(yspd, -max_yspd, max_yspd);
 
 // clean up and polish later
-coins_collected = clamp(coins_collected, 0, max_coins);
-max_xspd = base_xspd * (1 + coin_speed_bonus * coins_collected);
+coins_collected = max(coins_collected, 0);
+effect_coins = min(coins_collected, max_effect_coins);
+max_xspd = base_xspd * (1 + coin_speed_bonus * effect_coins);
 max_yspd = base_yspd;
-jump_spd = base_jump_spd + coin_jump_bonus * coins_collected;
-grav = base_grav + coin_grav_bonus * coins_collected;
+jump_spd = base_jump_spd + coin_jump_bonus * effect_coins;
+grav = base_grav + coin_grav_bonus * effect_coins;
 jump_hold_max = max(1, ceil(jump_spd / grav));
 
 unstick();

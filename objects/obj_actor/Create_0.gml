@@ -23,7 +23,7 @@ grav_dir = 0;
 
 // positive feedback loop
 coins_collected = 0;
-max_coins = 10;
+max_effect_coins = 10;
 
 // Per-coin upgrade rates
 coin_speed_bonus = 0.05; 

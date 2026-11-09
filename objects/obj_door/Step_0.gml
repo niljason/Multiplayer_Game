@@ -8,9 +8,9 @@ for (var i = 0; i < instance_number(obj_door); i++) {
 	if (!_d.door_open) _all_open = false;
 }
 
-if (_all_open) {
+if (_all_open && !juice_transition_active()) {
     with (obj_actor) {
 		coins_collected = 0;
 	}
-	room_goto_next();
+	juice_begin_next_room();
 }

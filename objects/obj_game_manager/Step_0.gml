@@ -1,3 +1,8 @@
+if (room != rm_start && room != rm_end) global.timer++;
+
+juice_update_room_transition();
+if (juice_transition_active()) exit;
+
 if (keyboard_check_pressed(ord("0"))) {
 	room_goto(rm_start);
 }

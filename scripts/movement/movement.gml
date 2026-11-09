@@ -6,6 +6,20 @@ function init_movement(){
 	y_remain = 0;
 }
 
+function reset_actor_to_spawn() {
+	x = x_start;
+	y = y_start;
+	grav_dir = spawn_grav_dir;
+	attached_steel = noone;
+	attached_side = 0;
+	attached_xspd = 0;
+	attached_offset_x = 0;
+	attached_offset_y = 0;
+	xspd = 0;
+	yspd = 0;
+	x_remain = 0;
+	y_remain = 0;
+}
 
 
 function move_collide(){

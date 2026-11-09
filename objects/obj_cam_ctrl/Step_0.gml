@@ -1,4 +1,4 @@
-// Menu rooms have no players; retain the last camera position until gameplay resumes.
+// start and end menu
 if (!instance_exists(obj_player_1) || !instance_exists(obj_player_2)) exit;
 
 global.cam = view_camera[0];
@@ -18,8 +18,7 @@ var _target_y = player_diff_y - (_dim_y / 2);
 _target_x = clamp(_target_x, 0, room_width - _dim_x);
 _target_y = clamp(_target_y, 0, room_height - _dim_y);
 
-// Keep the camera wide enough to contain both players. If the left player is
-// blocked at the view's left edge, this prevents the view panning right.
+// keep two players together
 var _min_cam_x = max(0, max(obj_player_1.bbox_right, obj_player_2.bbox_right) - _dim_x);
 var _max_cam_x = min(room_width - _dim_x, min(obj_player_1.bbox_left, obj_player_2.bbox_left));
 if (_min_cam_x <= _max_cam_x) {

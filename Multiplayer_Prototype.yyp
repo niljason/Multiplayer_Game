@@ -16,7 +16,9 @@
     {"$GMFolder":"","%Name":"scripts","folderPath":"folders/scripts.yy","name":"scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"sprites","folderPath":"folders/sprites.yy","name":"sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "ForcedPrefabProjectReferences":[],
+  "ForcedPrefabProjectReferences":[
+    {"link":"io.gamemaker.gm_filter_greyscale-1.0.0","name":"io.gamemaker.gm_filter_greyscale-1.0.0","path":"io.gamemaker.gm_filter_greyscale-1.0.0.yyp",},
+  ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"OFL-PixelifySans.txt","CopyToMask":-1,"filePath":"datafiles","name":"OFL-PixelifySans.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"PixelifySans[wght].ttf","CopyToMask":-1,"filePath":"datafiles","name":"PixelifySans[wght].ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
@@ -56,6 +58,7 @@
     {"id":{"name":"juice","path":"scripts/juice/juice.yy",},},
     {"id":{"name":"movement","path":"scripts/movement/movement.yy",},},
     {"id":{"name":"utility","path":"scripts/utility/utility.yy",},},
+    {"id":{"name":"spr_background","path":"sprites/spr_background/spr_background.yy",},},
     {"id":{"name":"spr_checkpoint","path":"sprites/spr_checkpoint/spr_checkpoint.yy",},},
     {"id":{"name":"spr_collectible_1","path":"sprites/spr_collectible_1/spr_collectible_1.yy",},},
     {"id":{"name":"spr_collectible_2","path":"sprites/spr_collectible_2/spr_collectible_2.yy",},},

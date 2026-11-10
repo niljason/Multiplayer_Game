@@ -49,6 +49,16 @@ attached_move_decel = 0.2;
 x_start = x;
 y_start = y;
 
+// invincibility after death
+invincibility_duration = 3 * 60;
+invincibility_timer = 0;
+
+// show hud only when not moving
+hud_idle_timer = 0;
+hud_idle_delay = 30;
+hud_last_x = x;
+hud_last_y = y;
+
 // coyote
 coyote_frames = 6;
 coyote_timer = 0;

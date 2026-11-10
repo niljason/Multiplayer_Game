@@ -36,6 +36,7 @@ function juice_update_room_transition() {
 		if (global.juice_transition_frame >= global.juice_transition_duration) {
 			global.juice_transition_phase = 2;
 			global.juice_transition_frame = global.juice_transition_duration;
+			reset_coins();
 			room_goto_next();
 		}
 	} else {

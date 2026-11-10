@@ -2,8 +2,6 @@ var _view_w = room_width;
 var _view_h = room_height;
 var _is_start = room == rm_start;
 
-//draw_set_font(fnt_grav_24);
-global.ui_font = font_add("PixelifySans[wght].ttf", 24, false, false, 32, 127);
 draw_set_font(get_ui_font());
 draw_set_color(c_white);
 draw_set_halign(fa_center);

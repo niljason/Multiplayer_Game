@@ -63,6 +63,7 @@
     {"id":{"name":"spr_collectible_1","path":"sprites/spr_collectible_1/spr_collectible_1.yy",},},
     {"id":{"name":"spr_collectible_2","path":"sprites/spr_collectible_2/spr_collectible_2.yy",},},
     {"id":{"name":"spr_collectible","path":"sprites/spr_collectible/spr_collectible.yy",},},
+    {"id":{"name":"spr_door","path":"sprites/spr_door/spr_door.yy",},},
     {"id":{"name":"spr_gravity_switch","path":"sprites/spr_gravity_switch/spr_gravity_switch.yy",},},
     {"id":{"name":"spr_particle","path":"sprites/spr_particle/spr_particle.yy",},},
     {"id":{"name":"spr_player_1","path":"sprites/spr_player_1/spr_player_1.yy",},},

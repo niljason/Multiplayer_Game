@@ -1,5 +1,8 @@
-// Open this door when its owner stands in it
-door_open = place_meeting(x, y, obj_actor);
+// Open this door only after both players collect all coins assigned to them.
+door_open = global.coins_ready
+	&& global.p1_coins >= global.p1_total
+	&& global.p2_coins >= global.p2_total
+	&& place_meeting(x, y, obj_actor);
 
 // Check whether every door in the room is open
 var _all_open = true;

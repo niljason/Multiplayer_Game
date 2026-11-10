@@ -4,6 +4,15 @@ var _ku = keyboard_check_pressed(btn_up); // change to press so need keyboard in
 var _kd = keyboard_check_pressed(btn_down);
 var hmove = _kr - _kl;
 
+invincibility_timer = max(invincibility_timer - 1, 0);
+
+var _trying_to_move = hmove != 0 || keyboard_check(btn_up) || keyboard_check(btn_down);
+var _position_unchanged = abs(x - hud_last_x) < 0.01 && abs(y - hud_last_y) < 0.01;
+hud_last_x = x;
+hud_last_y = y;
+hud_idle_timer = (!_trying_to_move && _position_unchanged)
+	? min(hud_idle_timer + 1, hud_idle_delay) : 0;
+
 var _just_detached = false;
 
 // Stay fixed to steel until the jump button releases the magnet.

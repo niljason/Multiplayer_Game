@@ -1,0 +1,1 @@
+obj_owner = obj_player_1;

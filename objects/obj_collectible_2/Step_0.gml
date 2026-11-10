@@ -4,5 +4,6 @@ if (distance_to_object(obj_player_2) <= _dist) {
 	with (obj_player_2) {
 		coins_collected++;
 	}
+	global.p2_coins++;
 	instance_destroy();
 }
